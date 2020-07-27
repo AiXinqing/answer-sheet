@@ -1,14 +1,17 @@
 <template>
   <div class="main-container">
     <basic-settings />
+    <answer-sheetedit />
   </div>
 </template>
 
 <script>
 import BasicSettings from "./content/_BasicSettings";
+import AnswerSheetedit from "./content/_AnswerSheetedit";
 export default {
   components: {
     BasicSettings,
+    AnswerSheetedit,
   },
   data() {
     return {
