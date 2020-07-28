@@ -1,29 +1,29 @@
 <template>
   <!-- 答题卡内容编辑 -->
   <div class="main-info">
-    <div class="container-card">
-      <div class="page-content" />
-    </div>
+    <page-content />
     <answer-question />
   </div>
 </template>
 
 <script>
-import AnswerQuestion from "./_AnwerQuestion";
+import AnswerQuestion from './_AnwerQuestion'
+import PageContent from './_pageContent'
 export default {
   components: {
     AnswerQuestion,
+    PageContent
   },
   data() {
     return {
-      da: "",
-    };
-  },
-};
+      da: ''
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/variables.scss";
+@import '~@/styles/variables.scss';
 .main-info {
   height: 100%;
   padding-top: 50px;

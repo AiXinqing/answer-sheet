@@ -23,14 +23,14 @@
 export default {
   data() {
     return {
-      checked: false,
-    };
-  },
-};
+      checked: false
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/variables.scss";
+@import '~@/styles/variables.scss';
 .btn-content {
   width: 320px;
   float: right;
