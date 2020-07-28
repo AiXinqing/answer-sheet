@@ -1,6 +1,11 @@
 const state = {
   GroupDataArr: [],
-  page_size: 1160
+  page_size: 1160,
+  PageLayout: {
+    pageWidth: 740, // 780 - padding 0 20 A3-3栏 480
+    pageSize: 'A3', // 纸张
+    column: 2 // 布局
+  }
 }
 
 const mutations = {
@@ -64,6 +69,11 @@ const mutations = {
     if (index > -1) {
       state.GroupDataArr.splice(index, 1)
     }
+  },
+  SET_LAYOUT: (state, layoutVal) => {
+    state.PageLayout = {
+      ...layoutVal
+    }
   }
 }
 
@@ -74,8 +84,11 @@ const actions = {
   groupPage: (context, rects) => { // 编辑
     context.commit('SET_GROUPPAGE', rects)
   },
-  delRectt: (context, rectId) => {
+  delRectt: (context, rectId) => { // 删除
     context.commit('REMOVERECT', rectId)
+  },
+  editLayout: (context, layoutVal) => {
+    context.commit('SET_LAYOUT', layoutVal)
   }
 }
 
