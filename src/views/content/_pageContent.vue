@@ -1,15 +1,11 @@
 <template>
   <div class="container-card">
-    <div
-      v-for="(index, item) in GroupDataArr"
-      :key="index"
-      class="page-content"
-    >
+    <div v-for="(item, i) in GroupDataArr" :key="i" class="page-content">
       <div
-        v-for="row in item"
-        :key="row.id"
+        v-for="(row, a) in item"
+        :key="a"
         class="footer"
-        :style="{ 'min-height': row.height + 'px' }"
+        :style="{ height: row.castHeight + 'px' }"
       >
         {{ row.content }}
       </div>
@@ -27,18 +23,17 @@ export default {
     ...mapState('answerSheet', ['GroupDataArr'])
   },
   mounted() {
-    const arr = [
-      {
-        content: '',
-        drag: false,
-        height: 382,
-        id: 0
-      }
+    const TestData = [
+      { id: 1, height: 200 },
+      { id: 2, height: 120 },
+      { id: 3, height: 90 },
+      { id: 4, height: 900 },
+      { id: 5, height: 350 }
     ]
-    this.editGroupData(arr)
+    this.groupPage(TestData)
   },
   methods: {
-    ...mapActions('answerSheet', ['editGroupData'])
+    ...mapActions('answerSheet', ['editGroupData', 'groupPage'])
   }
 }
 </script>

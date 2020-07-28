@@ -1,4 +1,3 @@
-
 <template>
   <!-- 基础配置 -->
   <div style="height:100%">
@@ -25,8 +24,12 @@
   </div>
 </template>
 
+<script>
+export default {}
+</script>
+
 <style lang="scss" scoped>
-@import "~@/styles/variables.scss";
+@import '~@/styles/variables.scss';
 .group_heads {
   height: 50px;
   line-height: 50px;

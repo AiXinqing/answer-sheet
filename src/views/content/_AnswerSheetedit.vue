@@ -15,14 +15,12 @@ export default {
     PageContent
   },
   data() {
-    return {
-      da: ''
-    }
+    return {}
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~@/styles/variables.scss';
 .main-info {
   height: 100%;
@@ -47,12 +45,16 @@ export default {
   background: $white;
   border-radius: 3px;
   padding: 0 20px;
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   .footer {
     position: relative;
     padding-top: 20px;
+  }
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 </style>

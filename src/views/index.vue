@@ -14,9 +14,7 @@ export default {
     AnswerSheetedit
   },
   data() {
-    return {
-      currentNode: null
-    }
+    return {}
   }
 }
 </script>
