@@ -1,6 +1,12 @@
 <template>
   <div>
-    <textarea class="textarea-info">请输入答题卡标题</textarea>
+    <el-input
+      type="textarea"
+      :rows="2"
+      placeholder="请输入答题卡标题"
+      v-model="textarea"
+      resize="none"
+    />
     <el-row class="TestTitle">
       <el-col :span="4" class="title-item">
         <span>考号</span>
@@ -49,7 +55,7 @@
             />
           </svg>
         </div>
-        <div class="precautions_mark" v-else>
+        <div v-else class="precautions_mark">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
@@ -83,6 +89,20 @@
           准考证号
           <span class="precautions_edit layui-btn layui-btn-xs">编辑</span>
         </div>
+        <table class="table_box" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <th v-for="item in 8" :key="item" />
+            </tr>
+            <tr>
+              <td v-for="item in 8" :key="item">
+                <div v-for="row in 9" :key="row">
+                  [<span>{{ row }} </span>]
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </el-col>
     </el-row>
   </div>
@@ -92,15 +112,21 @@
 export default {
   props: {
     contentData: {
-      type: Object,
+      type: Array,
       default() {
-        return {}
+        return []
       }
     }
   },
   data() {
     return {
-      svg: false
+      svg: false,
+      textarea: ''
+    }
+  },
+  computed: {
+    cardData() {
+      return this.contentData[0]
     }
   }
 }
@@ -108,16 +134,6 @@ export default {
 
 <style lang="scss">
 @import '~@/styles/variables.scss';
-.textarea-info {
-  text-align: center;
-  resize: none;
-  height: 65px;
-  line-height: 38px;
-  width: calc(100% - 2px);
-  font-size: 23px;
-  border: 1px dashed $font-888;
-  word-break: break-all;
-}
 .title-item {
   height: 38px;
   line-height: 50px;
@@ -153,7 +169,7 @@ export default {
   margin-top: 15px;
 }
 .precautions_box {
-  margin-top: 20px;
+  margin-top: 15px;
   .precautions_title {
     height: 38px;
     line-height: 38px;
@@ -168,11 +184,10 @@ export default {
     border: 1px solid $font-888;
     min-width: 223px;
     border-left: none;
-    border-bottom: navajowhite;
   }
   .precautions_content {
     padding-left: 10px;
-    height: 131px;
+    height: 127px;
     border-bottom: 1px solid $font-333;
     font-size: 14px;
     margin-top: 15px;
@@ -217,5 +232,48 @@ export default {
   font-size: 16px;
   height: 50px;
   line-height: 50px;
+}
+.el-textarea__inner {
+  border-style: dashed;
+  padding: 0 0;
+  text-align: center;
+  line-height: 31px;
+  font-size: 23px;
+  border-color: $font-888;
+  color: $font-666;
+}
+table tr td div:last-child {
+  margin-bottom: 7px;
+}
+
+.table_box th {
+  height: 28px;
+}
+
+.table_box div {
+  font-size: 12px;
+  text-align: center;
+  padding-top: 4px;
+  min-width: 27px;
+}
+
+.table_box div span {
+  position: relative;
+  top: 1px;
+  left: 1.8px;
+}
+
+.table_box tr th {
+  border-bottom: 2px solid #888;
+}
+
+.table_box td,
+.table_box th {
+  border-left: 1px solid #333;
+}
+
+.table_box td:first-child,
+.table_box th:first-child {
+  border-left: none;
 }
 </style>

@@ -36,11 +36,16 @@ export default {
   },
   mounted() {
     const TestData = [
-      { id: 1, height: 380, questionType: 'AnswerSheetTitle', content: [{}] },
-      { id: 2, height: 120, questionType: 'ObjectiveQuestion', content: [] },
-      { id: 3, height: 90, questionType: '', content: [] },
-      { id: 4, height: 900, questionType: '', content: [] },
-      { id: 5, height: 350, questionType: '', content: [] }
+      {
+        id: 1,
+        height: 380,
+        questionType: 'AnswerSheetTitle',
+        content: [{ title: '' }]
+      },
+      { id: 2, height: 120, questionType: 'ObjectiveQuestion', content: [] }
+      // { id: 3, height: 90, questionType: '', content: [] },
+      // { id: 4, height: 900, questionType: '', content: [] },
+      // { id: 5, height: 350, questionType: '', content: [] }
     ]
     this.groupPage(TestData)
   },
