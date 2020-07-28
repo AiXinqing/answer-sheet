@@ -10,9 +10,9 @@
         v-for="(row, a) in item"
         :key="a"
         class="footer"
-        :style="{ height: row.castHeight + 'px' }"
+        :style="{ minHeight: row.castHeight + 'px' }"
       >
-        <component :is="row.questionType" />
+        <component :is="row.questionType" :content-data="row.content" />
       </div>
     </div>
   </div>
@@ -36,11 +36,11 @@ export default {
   },
   mounted() {
     const TestData = [
-      { id: 1, height: 200, questionType: 'AnswerSheetTitle', content: [] },
-      { id: 2, height: 120, questionType: 'ObjectiveQuestion' },
-      { id: 3, height: 90, questionType: '' },
-      { id: 4, height: 900, questionType: '' },
-      { id: 5, height: 350, questionType: '' }
+      { id: 1, height: 380, questionType: 'AnswerSheetTitle', content: [{}] },
+      { id: 2, height: 120, questionType: 'ObjectiveQuestion', content: [] },
+      { id: 3, height: 90, questionType: '', content: [] },
+      { id: 4, height: 900, questionType: '', content: [] },
+      { id: 5, height: 350, questionType: '', content: [] }
     ]
     this.groupPage(TestData)
   },

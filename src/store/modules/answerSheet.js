@@ -2,7 +2,7 @@ const state = {
   GroupDataArr: [],
   page_size: 1160,
   PageLayout: {
-    pageWidth: 740, // 780 - padding 0 20 A3-3栏 480
+    pageWidth: 785, // 780 - padding 0 20 A3-3栏 480
     pageSize: 'A3', // 纸张
     column: 2 // 布局
   }
@@ -38,10 +38,12 @@ const mutations = {
         // 判断当前rect高度能分几页
         let height = rect.height - avalibleHeight
         while (height > state.page_size) {
-          results.push([{
-            ...rect,
-            castHeight: state.page_size
-          }])
+          results.push([
+            {
+              ...rect,
+              castHeight: state.page_size
+            }
+          ])
           height -= state.page_size
         }
         currentPage.height = height
@@ -78,13 +80,16 @@ const mutations = {
 }
 
 const actions = {
-  AddRect: (context, rect) => { // 新增
+  AddRect: (context, rect) => {
+    // 新增
     context.commit('SET_GROUPDATA', rect)
   },
-  groupPage: (context, rects) => { // 编辑
+  groupPage: (context, rects) => {
+    // 编辑
     context.commit('SET_GROUPPAGE', rects)
   },
-  delRectt: (context, rectId) => { // 删除
+  delRectt: (context, rectId) => {
+    // 删除
     context.commit('REMOVERECT', rectId)
   },
   editLayout: (context, layoutVal) => {
