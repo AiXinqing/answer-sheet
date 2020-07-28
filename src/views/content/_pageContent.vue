@@ -7,7 +7,7 @@
         class="footer"
         :style="{ height: row.castHeight + 'px' }"
       >
-        {{ row.content }}
+        <component :is="row.questionType" />
       </div>
     </div>
   </div>
@@ -15,7 +15,12 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import AnswerSheetTitle from './_AnswerSheetTitle'
+
 export default {
+  components: {
+    AnswerSheetTitle
+  },
   data() {
     return {}
   },
@@ -24,11 +29,11 @@ export default {
   },
   mounted() {
     const TestData = [
-      { id: 1, height: 200 },
-      { id: 2, height: 120 },
-      { id: 3, height: 90 },
-      { id: 4, height: 900 },
-      { id: 5, height: 350 }
+      { id: 1, height: 200, questionType: 'AnswerSheetTitle', content: [] },
+      { id: 2, height: 120, questionType: '' },
+      { id: 3, height: 90, questionType: '' },
+      { id: 4, height: 900, questionType: '' },
+      { id: 5, height: 350, questionType: '' }
     ]
     this.groupPage(TestData)
   },
